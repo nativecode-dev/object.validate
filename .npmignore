@@ -1,0 +1,9 @@
+.vscode/
+src/
+node_modules/
+tests/
+
+.jsbeautifyrc
+gulpfile.js
+gulpfile.json
+npm-debug.log
