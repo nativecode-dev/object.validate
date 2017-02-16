@@ -10,7 +10,7 @@ class Property {
       this.type = definition
       this.validator = is[this.type]
     } else if (is.function(definition)) {
-      this.type = 'custom'
+      this.type = 'validator'
       this.validator = definition
     } else {
       this.required = definition.required || false
@@ -28,7 +28,7 @@ class Property {
       return true
     }
 
-    if (this.type !== 'custom' && is[this.type](value) === false) {
+    if (this.type !== 'validator' && is[this.type](value) === false) {
       return false
     }
 

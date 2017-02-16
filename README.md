@@ -46,6 +46,14 @@ const schema = new JsonSchema({
 })
 ```
 
+## Validation Rules
+Validations are performed in this order:
+1. If `required` is `true` and the value is null or undefined: `false`
+2. If `required` is `false` and the value is null or undefined: `true`
+3. If `type` is not `validator` and the `is-type` fails: `false`
+4. If `validator` is a function: validator result
+5. Default to returning `true`
+
 ## Simple Type
 You can pass a type string defined by the excellent [`is-type`](https://www.npmjs.com/package/is-type) library
 rather than passing an object literal.
