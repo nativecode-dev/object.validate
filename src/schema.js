@@ -3,13 +3,15 @@ const is = require('is-type')
 
 const Property = require('./property')
 
-const define = schema => {
+const define = (schema, parts) => {
+  let pathparts = parts || []
   Object.keys(schema).forEach(property => {
     const value = schema[property]
     if (is.object(value) && is.undefined(value.type)) {
-      return define(value)
+      pathparts.push(property)
+      return define(value, pathparts)
     }
-    schema[property] = new Property(property, value)
+    schema[property] = new Property(property, value, pathparts)
   })
 
   return schema
@@ -23,8 +25,16 @@ class JsonSchema {
     debug('defined schema: %s (%O)', this.name, this.schema)
   }
 
-  validate(value) {
-    return false
+  validate(value, schema) {
+    const self = this
+    let current = schema || this.schema
+    return !Object.keys(current).some(name => {
+      const property = current[name]
+      if (is.function(property.validator)) {
+        return property.validate(value[name]) === false
+      }
+      return self.validate(value[name], property) === false
+    })
   }
 }
 

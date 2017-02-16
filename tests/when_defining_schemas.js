@@ -4,7 +4,7 @@ const mocha = require('mocha')
 const JsonSchema = require('../lib')
 
 describe('when defining schemas', () => {
-  describe('with primitive properties', () => {
+  describe('with single path properties', () => {
 
     it('should define array property', () => {
       const simple = new JsonSchema('simple', {
@@ -69,5 +69,20 @@ describe('when defining schemas', () => {
       expect(simple.schema.property.type).to.be.equal('symbol')
     })
 
+  })
+
+  describe('with a property graph', () => {
+    it('should navigate property graph', () => {
+      const graph = new JsonSchema('graph', {
+        property: {
+          level1: {
+            level2: {
+              level3: 'string'
+            }
+          }
+        }
+      })
+      expect(graph.schema.property.level1.level2.level3.path).to.be.equal('property.level1.level2')
+    })
   })
 })

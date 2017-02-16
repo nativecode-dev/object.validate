@@ -10,63 +10,63 @@ describe('when validating schemas', () => {
       const simple = new JsonSchema('simple', {
         property: 'array'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate('string')).to.be.false
     })
 
     it('should define boolean property', () => {
       const simple = new JsonSchema('simple', {
         property: 'boolean'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate('string')).to.be.false
     })
 
     it('should define buffer property', () => {
       const simple = new JsonSchema('simple', {
         property: 'buffer'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate('string')).to.be.false
     })
 
     it('should define date property', () => {
       const simple = new JsonSchema('simple', {
         property: 'date'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate('string')).to.be.false
     })
 
     it('should define function property', () => {
       const simple = new JsonSchema('simple', {
         property: 'function'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate('string')).to.be.false
     })
 
     it('should define number property', () => {
       const simple = new JsonSchema('simple', {
         property: 'number'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate('string')).to.be.false
     })
 
     it('should define object property', () => {
       const simple = new JsonSchema('simple', {
         property: 'object'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate('string')).to.be.false
     })
 
     it('should define string property', () => {
       const simple = new JsonSchema('simple', {
         property: 'string'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate(123)).to.be.false
     })
 
     it('should define symbol property', () => {
       const simple = new JsonSchema('simple', {
         property: 'symbol'
       })
-      expect(simple.schema.property.validate(null)).to.be.false
+      expect(simple.schema.property.validate('string')).to.be.false
     })
 
   })
