@@ -35,7 +35,7 @@
   "scripts": {
     "build": "gulp build",
     "clean": "gulp clean",
-    "preservice": "gulp clean && gulp build",
+    "prepublish": "gulp clean && gulp test",
     "pretest": "gulp clean",
     "test": "gulp test"
   }
