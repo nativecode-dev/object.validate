@@ -46,7 +46,18 @@ const schema = new JsonSchema({
 })
 ```
 
-## Custom Validator
+## Simple Type
+You can pass a type string defined by the excellent [`is-type`](https://www.npmjs.com/package/is-type) library
+rather than passing an object literal.
+```javascript
+const schema = new JsonSchema({
+  name: 'string',
+  age: 'number',
+  birth: 'date'
+})
+```
+
+## Simple Validator
 Custom validators take the form of: `(value, istype)`, where `istype` is the [`is-type`](https://www.npmjs.com/package/is-type)
 node library. You can pass a validator function directly when assigning the schema or use the `validator`
 property in an object literal.
