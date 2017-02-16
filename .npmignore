@@ -1,9 +1,11 @@
 .vscode/
 src/
-node_modules/
 tests/
 
+.editorconfig
 .jsbeautifyrc
+.npmignore
+.npmrc
 gulpfile.js
 gulpfile.json
 npm-debug.log

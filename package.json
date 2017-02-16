@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "name": "object.validate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bugs": {
     "email": "support@nativecode.com",
     "url": "https://github.com/nativecode-dev/object.validate/issues"
