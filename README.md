@@ -47,9 +47,9 @@ const schema = new JsonSchema({
 ```
 
 ## Custom Validator
-Custom validators take the form of: `(value, istype)`, where `istype` is the `is-type` node library. You can
-pass a validator function directly when assigning the schema or use the `validator` property in an object
-literal.
+Custom validators take the form of: `(value, istype)`, where `istype` is the [`is-type`](https://www.npmjs.com/package/is-type)
+node library. You can pass a validator function directly when assigning the schema or use the `validator`
+property in an object literal.
 
 NOTE: When used directly, you must check the type yourself.
 
