@@ -8,12 +8,15 @@ class Property {
 
     if (is.string(definition)) {
       this.type = definition
+      this.validator = is[this.type]
+    } else if (is.function(definition)) {
+      this.type = 'custom'
+      this.validator = definition
     } else {
       this.required = definition.required || false
       this.type = definition.type
+      this.validator = definition.validator || is[this.type]
     }
-
-    this.validator = definition.validator || is[this.type]
 
     debug('defined property: %s (%s)', this.name, this.type)
   }
@@ -25,12 +28,12 @@ class Property {
       return true
     }
 
-    if (is[this.type](value) === false) {
+    if (this.type !== 'custom' && is[this.type](value) === false) {
       return false
     }
 
     if (is.function(this.validator)) {
-      return this.validator(value)
+      return this.validator(value, is)
     }
 
     return true

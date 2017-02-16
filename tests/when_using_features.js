@@ -4,6 +4,24 @@ const mocha = require('mocha')
 const JsonSchema = require('../lib')
 
 describe('when using features', () => {
+  describe('custom function validator only', () => {
+    const custom = new JsonSchema({
+      range: (value, is) => {
+        if (is.number(value) === false) {
+          return false
+        }
+        return value > 0 && value < 100
+      }
+    })
+
+    it('should validate with only custom function', () => {
+      const valid = {
+        range: 99
+      }
+      expect(custom.validate(valid)).to.be.true
+    })
+  })
+
   describe('custom function validator', () => {
     const custom = new JsonSchema({
       range: {
