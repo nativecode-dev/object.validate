@@ -4,7 +4,7 @@ const mocha = require('mocha')
 const JsonSchema = require('../lib')
 
 describe('when validating objects', () => {
-  const deep = new JsonSchema('deep', {
+  const deep = new JsonSchema({
     address: {
       line1: 'string',
       line2: 'string',
@@ -19,6 +19,7 @@ describe('when validating objects', () => {
         }
       },
       zipcode: {
+        required: true,
         type: 'number',
         validator: value => {
           return value > 0 && value <= 99999
@@ -37,7 +38,7 @@ describe('when validating objects', () => {
           full: 'Some State',
           short: 'SS'
         },
-        zipcode: '12345'
+        zipcode: 123456
       }
     }
 
@@ -49,7 +50,8 @@ describe('when validating objects', () => {
         state: {
           full: 'Some State',
           short: 'SS'
-        }
+        },
+        zipcode: 12345
       }
     }
 

@@ -18,11 +18,11 @@ const define = (schema, parts) => {
 }
 
 class JsonSchema {
-  constructor(name, schema) {
+  constructor(schema, name) {
     this.name = name
     this.schema = define(schema)
 
-    debug('defined schema: %s (%O)', this.name, this.schema)
+    debug('defined schema: %s (%O)', this.name || 'anonymous', this.schema)
   }
 
   validate(value, schema) {

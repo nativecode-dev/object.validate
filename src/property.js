@@ -4,7 +4,7 @@ const is = require('is-type')
 class Property {
   constructor(name, definition, pathparts) {
     this.name = name
-    this.path = pathparts ? pathparts.join('.') : '.'
+    this.path = pathparts.length ? pathparts.join('.') : '.'
 
     if (is.string(definition)) {
       this.type = definition
