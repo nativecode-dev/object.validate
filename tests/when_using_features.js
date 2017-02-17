@@ -42,7 +42,9 @@ describe('when using features', () => {
 
   describe('custom function validator that returns a RegExp object', () => {
     const custom = new JsonSchema({
-      value: () => /\d+/
+      value: function() {
+        return /\d+/
+      }
     })
 
     const invalid = {
