@@ -15,7 +15,7 @@
       "presets": "es2015"
     },
     "mocha": {
-      "reporter": "nyan"
+      "reporter": "spec"
     }
   },
   "sources": {
