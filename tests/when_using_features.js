@@ -26,9 +26,7 @@ describe('when using features', () => {
     const custom = new JsonSchema({
       range: {
         type: 'number',
-        validator: value => {
-          return value > 0 && value < 100
-        }
+        validator: value => value > 0 && value < 100
       }
     })
 
@@ -43,6 +41,28 @@ describe('when using features', () => {
       const valid = {
         range: 10
       }
+      expect(custom.validate(valid)).to.be.true
+    })
+  })
+
+  describe('custom function validator that returns a RegExp object', () => {
+    const custom = new JsonSchema({
+      value: () => /\d+/
+    })
+
+    const invalid = {
+      value: 'abcdef'
+    }
+
+    const valid = {
+      value: '123456'
+    }
+
+    it('should fail regex validation', () => {
+      expect(custom.validate(invalid)).to.be.false
+    })
+
+    it('should pass regex validation', () => {
       expect(custom.validate(valid)).to.be.true
     })
   })

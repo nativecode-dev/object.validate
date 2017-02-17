@@ -33,7 +33,11 @@ class Property {
     }
 
     if (is.function(this.validator)) {
-      return this.validator(value, is)
+      const result = this.validator(value, is)
+      if (is.regExp(result)) {
+        return result.test(value)
+      }
+      return result
     }
 
     return true

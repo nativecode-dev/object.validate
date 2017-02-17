@@ -13,17 +13,13 @@ describe('when validating objects', () => {
         full: 'string',
         short: {
           type: 'string',
-          validator: value => {
-            return value.length === 2
-          }
+          validator: value => value.length === 2
         }
       },
       zipcode: {
         required: true,
         type: 'number',
-        validator: value => {
-          return value > 0 && value <= 99999
-        }
+        validator: value => value > 0 && value <= 99999
       }
     }
   })
