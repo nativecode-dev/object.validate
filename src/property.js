@@ -18,7 +18,7 @@ class Property {
       this.validator = definition.validator || is[this.type]
     }
 
-    debug('defined property: %s (%s)', this.name, this.type)
+    debug('defined property: %s (%s) @ %s', this.name, this.type, this.path)
   }
 
   validate(value) {
