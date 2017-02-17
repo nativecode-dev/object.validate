@@ -1,5 +1,5 @@
 const debug = require('debug')('object.validate:schema')
-const is = require('is-type')
+const is = require('is')
 
 const Property = require('./property')
 

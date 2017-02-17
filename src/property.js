@@ -1,5 +1,5 @@
 const debug = require('debug')('object.validate:property')
-const is = require('is-type')
+const is = require('is')
 
 class Property {
   constructor(name, definition, pathparts) {
@@ -22,9 +22,9 @@ class Property {
   }
 
   validate(value) {
-    if (this.required && is.nullOrUndefined(value)) {
+    if (this.required && (is.nil(value) || is.undefined(value))) {
       return false
-    } else if (is.nullOrUndefined(value)) {
+    } else if (is.nil(value) || is.undefined(value)) {
       return true
     }
 
@@ -34,7 +34,7 @@ class Property {
 
     if (is.function(this.validator)) {
       const result = this.validator(value, is)
-      if (is.regExp(result)) {
+      if (is.regexp(result)) {
         return result.test(value)
       }
       return result

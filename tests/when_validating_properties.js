@@ -20,13 +20,6 @@ describe('when validating schemas', () => {
       expect(simple.schema.property.validate('string')).to.be.false
     })
 
-    it('should define buffer property', () => {
-      const simple = new JsonSchema({
-        property: 'buffer'
-      })
-      expect(simple.schema.property.validate('string')).to.be.false
-    })
-
     it('should define date property', () => {
       const simple = new JsonSchema({
         property: 'date'
@@ -85,13 +78,6 @@ describe('when validating schemas', () => {
         property: 'boolean'
       })
       expect(simple.schema.property.validate(true)).to.be.true
-    })
-
-    it('should define buffer property', () => {
-      const simple = new JsonSchema({
-        property: 'buffer'
-      })
-      expect(simple.schema.property.validate(new Buffer('test'))).to.be.true
     })
 
     it('should define date property', () => {
