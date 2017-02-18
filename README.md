@@ -69,7 +69,7 @@ definition.schema.data.text.validate(valid.data)
 | 6     | Default                                                         | `true`                  |
 
 ## Simple Type
-You can pass a type string defined by the simple [`is-type`](https://www.npmjs.com/package/is-type) library
+You can pass a type string defined by the simple [`is`](https://www.npmjs.com/package/is) library
 rather than passing an object literal.
 ```javascript
 const schema = new JsonSchema({
@@ -80,8 +80,8 @@ const schema = new JsonSchema({
 ```
 
 ## Simple Validator
-Custom validators take the form of: `(value, istype)`, where `istype` is the
-[`is-type`](https://www.npmjs.com/package/is-type) node library. You can pass a validator function inline
+Custom validators take the form of: `(value, is)`, where `is` is the
+[`is`](https://www.npmjs.com/package/is) node library. You can pass a validator function inline
 when assigning the schema or use the `validator` property in an object literal.
 
 NOTE: When used inline, you must check the type yourself.
