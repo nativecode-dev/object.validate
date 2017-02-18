@@ -1,11 +1,11 @@
 {
-  "author": "Mike Pham <support@nativecode.com> (https://www.mikepham.com)",
+  "author": "NativeCode Development <support@nativecode.com> (https://www.nativecode.com)",
   "description": "Validates an object based on a pre-defined schema.",
   "homepage": "https://github.com/nativecode-dev/object.validate",
   "license": "MIT",
   "main": "lib/index.js",
   "name": "object.validate",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "bugs": {
     "email": "support@nativecode.com",
     "url": "https://github.com/nativecode-dev/object.validate/issues"
